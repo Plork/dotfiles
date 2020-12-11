@@ -1,0 +1,70 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ["~", "~/bin"]
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+- link:
+    ~/.ssh: ssh
+
+    ~/.editorconfig: editorconfig
+
+    ~/.vimrc: vim/vimrc
+    ~/.vim/autoload/plug.vim: vim/vim-plug/plug.vim
+    ~/.config/nvim:
+      path: nvim
+      force: true
+
+    ~/.oh-my-zsh: zsh/oh-my-zsh
+    ~/.p10k:
+      path: zsh/p10k.zsh
+      force: true
+    ~/.zshrc:
+      path: zsh/zshrc.zsh
+      force: true
+    ~/.zgen: zsh/zgen
+    ~/.asdf: zsh/asdf
+
+    ~/.bashrc:
+      path: bash/bashrc
+      force: true
+
+    ~/bin:
+      glob: true
+      path: scripts/*
+      relink: true
+
+    ~/Library/Application Support/Code/User:
+      if: "[ `uname` = Darwin ]"
+      glob: true
+      path: vscode/*.json
+      force: true
+
+- brewfile:
+    - ./macos/Brewfile
+
+- vscodefile:
+    file: ./vscode/vscodefile
+    insiders: false
+
+- shell:
+    - command: ./git/set-gitconfig.sh
+      description: Configuring Git
+      stdout: true
+      quiet: false
+
+    - command: ./macos/set-defaults.sh
+      description: Configuring MacOs
+      stdout: true
+      quiet: false
+
+- crontab:
+  - cron: 0 10 * * *
+    command: brew bundle dump --file=$DOTFILES/macos/Brewfile -f
+
+  - cron: 0 10 * * *
+    command: code --list-extensions > $DOTFILES/vscode/vscodefile
