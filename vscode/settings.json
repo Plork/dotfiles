@@ -126,7 +126,6 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.minimap.showSlider": "always",
     "explorer.confirmDelete": false,
-    "editor.cursorStyle": "block",
     "auto-rename-tag.activationOnLanguage": [
         "javascriptreact"
     ],
@@ -163,7 +162,7 @@
         "**/node_modules/**": false
     },
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Name
-git config --global user.name "Marcel Bezemer"
-git config --global user.email "mbezemer@schubergphilis.com"
+# git config --global user.name "John Doe"
+# git config --global user.email "johndoe@mail.com"
 
 # Set git global settings
 git config --global push.default current
