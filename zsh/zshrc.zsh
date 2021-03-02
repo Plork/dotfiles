@@ -40,6 +40,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/asdf
     zgen load kiurchv/asdf.plugin.zsh
 
+    zplug "dracula/zsh", as:theme
     # These 2 must be in this order
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-history-substring-search
@@ -119,7 +120,7 @@ export FZF_TMUX_HEIGHT=80%
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export BAT_THEME='Monokai Extended Bright'
-
+export ZSH_THEME="dracula"
 export AWS_PAGER='bat -p'
 
 # Needed for Crystal on mac - openss + pkg-config

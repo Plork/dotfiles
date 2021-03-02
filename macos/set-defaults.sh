@@ -40,7 +40,7 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 echo "  › Enable text replacement almost everywhere"
-defaults write -g WebAutomaticTextReplacementEnabled -bool true
+defaults write -g WebAutomaticTextReplacementEnabled -bool false
 
 echo "  › Turn off keyboard illumination when computer is not used for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
