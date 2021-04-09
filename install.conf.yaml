@@ -9,7 +9,7 @@
     - [git submodule update --init --recursive, Installing submodules]
 
 - link:
-    ~/.ssh: ssh
+    ~/.ssh: ssh/
 
     ~/.editorconfig: editorconfig
 
@@ -63,8 +63,8 @@
       quiet: false
 
 - crontab:
-  - cron: 0 10 * * *
+  - cron: 0 10 * * 1-5
     command: brew bundle dump --file=$DOTFILES/macos/Brewfile -f
 
-  - cron: 0 10 * * *
+  - cron: 0 10 * * 1-5
     command: code --list-extensions > $DOTFILES/vscode/vscodefile

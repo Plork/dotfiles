@@ -172,7 +172,7 @@
     "kite.showWelcomeNotificationOnStartup": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "Dracula Soft",
+    "workbench.colorTheme": "Darcula",
     "powershell.codeFormatting.autoCorrectAliases": true,
     "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
     "powershell.codeFormatting.preset": "OTBS",
@@ -181,4 +181,13 @@
     "powershell.codeFormatting.useCorrectCasing": true,
     "powershell.codeFormatting.whitespaceBetweenParameters": true,
     "powershell.integratedConsole.suppressStartupBanner": true,
+    "json.maxItemsComputed": 50000,
+    "azure.resourceFilter": [
+        "2ba489e8-3466-4f52-a32d-263d28b832e1/004164f2-1c28-44aa-882e-3dfd3bd634e0"
+    ],
+    "vscode-home-assistant.hostUrl": "http://hassio.local:8123/",
+    "vscode-home-assistant.ignoreCertificates": true,
+    "azureResourceManagerTools.parameterFiles": {
+        "/Users/mbezemer/Git/SBP/SAAS/ExoAPI/templates/template.exoapi.json": "parameters.exoapi.sbpd.json"
+    },
 }
