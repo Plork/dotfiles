@@ -17,6 +17,7 @@ if ! zgen saved; then
 
     # Plugins
     zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/ssh-agent
     zgen oh-my-zsh plugins/github
     zgen oh-my-zsh plugins/sudo
     zgen oh-my-zsh plugins/command-not-found
@@ -25,6 +26,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/knife
     zgen oh-my-zsh plugins/kitchen
+    zgen oh-my-zsh plugins/terraform
     zgen load michaelaquilina/zsh-autoswitch-virtualenv
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load jocelynmallon/zshmarks
@@ -133,3 +135,6 @@ source ~/.asdf/completions/asdf.bash
 source /usr/local/etc/bash_completion.d/az
 
 [[ ! -f ~/.p10k ]] || source ~/.p10k
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

@@ -1,193 +1,52 @@
 {
-    "explorer.confirmDragAndDrop": false,
-    "editor.codeLens": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.formatOnPaste": true,
-    "editor.minimap.enabled": true,
-    "editor.tabSize": 2,
-    "editor.renderWhitespace": "all",
-    "workbench.colorCustomizations": {
-      "editorWhitespace.foreground": "#1e1e1e"
-    },
-    "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace, 'MesloLGS NF' ",
-    "yaml.customTags": [
-        "!And",
-        "!And sequence",
-        "!If",
-        "!If sequence",
-        "!Not",
-        "!Not sequence",
-        "!Equals",
-        "!Equals sequence",
-        "!Or",
-        "!Or sequence",
-        "!FindInMap",
-        "!FindInMap sequence",
-        "!Base64",
-        "!Join",
-        "!Join sequence",
-        "!Cidr",
-        "!Ref",
-        "!Sub",
-        "!Sub sequence",
-        "!GetAtt",
-        "!GetAZs",
-        "!ImportValue",
-        "!ImportValue sequence",
-        "!Select",
-        "!Select sequence",
-        "!Split",
-        "!Split sequence"
-    ],
-    "cfnLint.validateUsingJsonSchema": false,
-    "yaml.validate": false,
-    "files.trimTrailingWhitespace": true,
-    "files.trimFinalNewlines": true,
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "text.html.markdown.journal.task.open.bullet",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.marker",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.open.text",
-                "settings": {}
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.marker",
-                "settings": {
-                    "foreground": "#AAAAAA"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.text",
-                "settings": {
-                    "foreground": "#AAAAAA"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.task.completed.bullet",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.memo.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.memo.bullet",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.scope",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.link.keyword",
-                "settings": {
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "scope": "text.html.markdown.journal.link.bullet",
-                "settings": {
-                    "foreground": "#FFFF00"
-                }
-            }
-        ]
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.minimap.showSlider": "always",
-    "explorer.confirmDelete": false,
-    "auto-rename-tag.activationOnLanguage": [
-        "javascriptreact"
-    ],
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "javascript.preferences.quoteStyle": "single",
-    "javascript.referencesCodeLens.enabled": true,
-    "javascript.referencesCodeLens.showOnAllFunctions": true,
-    "javascript.suggest.completeFunctionCalls": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.implementationsCodeLens.enabled": true,
-    "typescript.preferences.quoteStyle": "single",
-    "typescript.referencesCodeLens.enabled": true,
-    "typescript.referencesCodeLens.showOnAllFunctions": true,
-    "typescript.suggest.autoImports": false,
-    "typescript.suggest.completeFunctionCalls": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "editor.renameOnType": true,
-    "typescript.tsserver.pluginPaths": [
-        "typescript-plugin-css-modules"
-    ],
-    "scssFormatter.singleQuote": true,
-    "editor.colorDecorators": false,
-    "window.zoomLevel": 0,
-    "terminal.integrated.fontSize": 11,
-    "gitHistory.showEditorTitleMenuBarIcons": false,
-    "gitlens.menus": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "comment-ts.includeDescriptionTag": true,
-    "files.watcherExclude": {
-        "**/node_modules/**": false
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "vsicons.dontShowNewVersionMessage": true,
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace, \"Hack Nerd Font\"",
-    "kite.showWelcomeNotificationOnStartup": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "workbench.colorTheme": "Darcula",
-    "powershell.codeFormatting.autoCorrectAliases": true,
-    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
-    "powershell.codeFormatting.preset": "OTBS",
-    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-    "powershell.codeFormatting.useConstantStrings": true,
-    "powershell.codeFormatting.useCorrectCasing": true,
-    "powershell.codeFormatting.whitespaceBetweenParameters": true,
-    "powershell.integratedConsole.suppressStartupBanner": true,
-    "json.maxItemsComputed": 50000,
-    "azure.resourceFilter": [
-        "2ba489e8-3466-4f52-a32d-263d28b832e1/004164f2-1c28-44aa-882e-3dfd3bd634e0"
-    ],
-    "vscode-home-assistant.hostUrl": "http://hassio.local:8123/",
-    "vscode-home-assistant.ignoreCertificates": true,
-    "azureResourceManagerTools.parameterFiles": {
-        "/Users/mbezemer/Git/SBP/SAAS/ExoAPI/templates/template.exoapi.json": "parameters.exoapi.sbpd.json"
-    },
+  "editor.renderControlCharacters": true,
+  "cSpell.userWords": [
+    "Autoscale",
+    "functionapp",
+    "requestqueue",
+    "resourcegroup",
+    "Schubergphilis",
+    "storageaccountcontent"
+  ],
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "git.autoStash": true,
+  "git.fetchOnPull": true,
+  "workbench.colorTheme": "Dracula Soft",
+  "azureResourceManagerTools.parameterFiles": {
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/actionGroup/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/Templates/virtualNetworkSubnets.json": "../../../../rpa/infra/parameters/spht01/virtualNetworkSubnets.param.json",
+    "/Users/mbezemer/Git/snbvnl/rpa/apgw/AzureDeploy/Templates/applicationGateway.json": "../../parameters/spht01/applicationGateway.param.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/Templates/keyVaultSecret.json": "../../../../rpa/sqlsrv/test.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/applicationGateway/applicationGateway.json": "applicationGateway.param.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/activityLogs/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/storageAccount/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/azureBastion/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/apiManagement/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/networkSecurityGroup/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/userAssignedIdentity/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/appServicePlan/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/appServiceApp/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/applicationInsights/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/keyVault/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/snbvnl/ccoe/sources/AzureDeploy/scaleSet/azuredeploy.json": "azuredeploy.parameters.json",
+    "/Users/mbezemer/Git/Geldmaat/sources/AzureDeploy/Templates/staticMetricAlert.json": "../../Monitoring/alertRules/Microsoft.keyVault/vaults/apiLatency.param.json"
+  },
+  "terminal.integrated.tabs.enabled": true,
+  "redhat.telemetry.enabled": true,
+  "diffEditor.renderSideBySide": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "explorer.confirmDragAndDrop": false,
+  "azure.resourceFilter": [
+    "7092de30-03a0-41ce-a90b-3523837182a5/4c0da5c9-1146-4998-b97d-fb117902f451",
+    "2ba489e8-3466-4f52-a32d-263d28b832e1/004164f2-1c28-44aa-882e-3dfd3bd634e0"
+  ],
+  "azureFunctions.showProjectWarning": false,
+  "powershell.promptToUpdatePowerShell": false,
+  "[markdown]": {
+
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  }
 }
