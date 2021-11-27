@@ -123,6 +123,7 @@ export FZF_TMUX_HEIGHT=80%
 
 export BAT_THEME='Monokai Extended Bright'
 export ZSH_THEME="dracula"
+
 export AWS_PAGER='bat -p'
 
 # Needed for Crystal on mac - openss + pkg-config
@@ -138,3 +139,7 @@ source /usr/local/etc/bash_completion.d/az
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/usr/local/sbin:$PATH"

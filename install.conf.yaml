@@ -9,8 +9,6 @@
     - [git submodule update --init --recursive, Installing submodules]
 
 - link:
-    ~/.ssh: ssh/
-
     ~/.editorconfig: editorconfig
 
     ~/.vimrc: vim/vimrc
@@ -38,18 +36,8 @@
       path: scripts/*
       relink: true
 
-    ~/Library/Application Support/Code/User:
-      if: "[ `uname` = Darwin ]"
-      glob: true
-      path: vscode/*.json
-      force: true
-
 - brewfile:
     - ./macos/Brewfile
-
-- vscodefile:
-    file: ./vscode/vscodefile
-    insiders: false
 
 - shell:
     - command: ./git/set-gitconfig.sh
@@ -65,6 +53,3 @@
 - crontab:
   - cron: 0 10 * * 1-5
     command: brew bundle dump --file=$DOTFILES/macos/Brewfile -f
-
-  - cron: 0 10 * * 1-5
-    command: code --list-extensions > $DOTFILES/vscode/vscodefile

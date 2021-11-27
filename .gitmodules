@@ -15,9 +15,6 @@
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = https://github.com/junegunn/vim-plug
-[submodule "dotbot-vscode"]
-	path = dotbot-vscode
-	url = https://github.com/hujianxin/dotbot-vscode
 [submodule "dotbot-brew"]
 	path = dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git
