@@ -9,6 +9,10 @@ grau() {
   git branch -u upstream/"$(command git branch --show-current)"
 }
 
+realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 # Stash changes, get latest master, re-apply
 getlatest() {
   local stash_string=$(LC_CTYPE=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 32 | xargs)

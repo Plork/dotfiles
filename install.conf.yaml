@@ -12,19 +12,25 @@
     ~/.editorconfig: editorconfig
 
     ~/.vimrc: vim/vimrc
+
     ~/.vim/autoload/plug.vim: vim/vim-plug/plug.vim
+
     ~/.config/nvim:
       path: nvim
       force: true
 
     ~/.oh-my-zsh: zsh/oh-my-zsh
+
     ~/.p10k:
       path: zsh/p10k.zsh
       force: true
+
     ~/.zshrc:
       path: zsh/zshrc.zsh
       force: true
+
     ~/.zgen: zsh/zgen
+
     ~/.asdf: zsh/asdf
 
     ~/.bashrc:

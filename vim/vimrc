@@ -29,5 +29,7 @@ set showmode                    " Show current mode.
 set autoread
 set ignorecase
 
+set directory=$HOME/.vim/swapfiles
+
 let g:indentLine_leadingSpacChar='·'
 let g:indentLine_leadingSpaceEnabled='1'

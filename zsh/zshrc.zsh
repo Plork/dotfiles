@@ -10,6 +10,7 @@ fi
 source ~/.zgen/zgen.zsh
 
 export DOTFILES="$HOME/dotfiles"
+export no_proxy="*"
 
 # Generate zgen init.sh if it doesn't exist
 if ! zgen saved; then
@@ -42,11 +43,10 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/asdf
     zgen load kiurchv/asdf.plugin.zsh
 
-    zplug "dracula/zsh", as:theme
     # These 2 must be in this order
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-history-substring-search
-
+k
     # Set keystrokes for substring searching
     zmodload zsh/terminfo
     bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -122,7 +122,6 @@ export FZF_TMUX_HEIGHT=80%
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export BAT_THEME='Monokai Extended Bright'
-export ZSH_THEME="dracula"
 
 export AWS_PAGER='bat -p'
 
@@ -143,3 +142,14 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"

@@ -2,7 +2,6 @@
 #
 # Some additional git aliases
 
-alias gst="git status"
 alias gau="git add -u"
 alias gbd="git branch -D"
 alias gbm="git branch --merged"
@@ -19,10 +18,12 @@ alias gdlast="git diff HEAD~1..HEAD"
 alias gh="git hist"
 alias gl="git l3"
 alias glast="git log -1 HEAD"
+alias glon="git log --oneline --name-only"
 alias gpdel="git push --delete"
 alias gpl="git pull"
 alias groot='if [ "`git rev-parse --show-cdup`" != "" ]; then cd `git rev-parse --show-cdup`; fi'
+alias gst="git status"
 alias gstu="git status -uno"
+alias gt="git tag"
 alias gundo="git reset HEAD~1"
 alias guns="git reset HEAD --"
-

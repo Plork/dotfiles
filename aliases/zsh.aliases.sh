@@ -2,7 +2,7 @@
 
 alias rl='source ~/.zshrc; echo ".zshrc reloaded"'
 alias regen='zgen reset;source ~/.zshrc'
-
+alias cls='clear'
 alias ll='ls -la'
 alias llt='ls -lat'
 
@@ -98,5 +98,12 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 alias tf="terraform"
+alias tfv='terraform validate'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfm='terraform fmt -recursive'
 
 alias bb="bicep build ./main.bicep --outfile azuredeploy.json"
+
+alias kns=kubens
+alias kctx=kubectx
