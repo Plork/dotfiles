@@ -25,8 +25,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/kubectl
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
-    zgen oh-my-zsh plugins/knife
-    zgen oh-my-zsh plugins/kitchen
     zgen oh-my-zsh plugins/terraform
     zgen load michaelaquilina/zsh-autoswitch-virtualenv
     zgen load zsh-users/zsh-syntax-highlighting
@@ -132,7 +130,6 @@ fi
 
 source ~/.asdf/asdf.sh
 source ~/.asdf/completions/asdf.bash
-source /usr/local/etc/bash_completion.d/az
 
 [[ ! -f ~/.p10k ]] || source ~/.p10k
 
@@ -142,6 +139,12 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/Cellar/python@3.8/3.8.16/libexec/bin:$PATH"
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
 if command -v pyenv 1>/dev/null 2>&1; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
@@ -149,7 +152,4 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PATH="${PATH}:${HOME}/.local/bin"
-export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
