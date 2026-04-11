@@ -1,11 +1,17 @@
 shell = "zsh"
 
+[templates]
+# omz-init: sets $ZSH before oh-my-zsh.sh is sourced.
+# {{ dir }} is resolved by sheldon's template engine (valid here, not in hooks.pre).
+omz-init = 'export ZSH="{{ dir }}" plugins=(git ssh-agent github sudo command-not-found kubectl docker docker-compose terraform)'
+# fpath-src: adds the src/ subdir of zsh-completions to fpath instead of sourcing files directly.
+fpath-src = 'fpath=( "{{ dir }}/src" $fpath )'
+
 # oh-my-zsh core + plugins loaded in a single clone
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
 use = ["oh-my-zsh.sh"]
-[plugins.oh-my-zsh.hooks]
-pre = 'export ZSH="{{ dir }}" plugins=(git ssh-agent github sudo command-not-found kubectl docker docker-compose terraform)'
+apply = ["omz-init", "source"]
 
 # Third-party plugins
 [plugins.zsh-mkc]
@@ -34,4 +40,4 @@ github = "djui/alias-tips"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
-use = ["src/_*"]
+apply = ["fpath-src"]
