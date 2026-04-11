@@ -44,7 +44,7 @@ if ! zgen saved; then
     # These 2 must be in this order
     zgen load zsh-users/zsh-syntax-highlighting
     zgen load zsh-users/zsh-history-substring-search
-k
+
     # Set keystrokes for substring searching
     zmodload zsh/terminfo
     bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -64,8 +64,6 @@ k
     # Generate init.sh
     zgen save
 fi
-
-zgen load romkatv/powerlevel10k powerlevel10k
 
 # History Options
 setopt append_history
@@ -125,24 +123,27 @@ export AWS_PAGER='bat -p'
 
 # Needed for Crystal on mac - openss + pkg-config
 if [ `uname` = Darwin ]; then
-  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig
+  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/opt/openssl@3/lib/pkgconfig
 fi
 
 source ~/.asdf/asdf.sh
-source ~/.asdf/completions/asdf.bash
+fpath=(${ASDF_DIR}/completions $fpath)
 
 [[ ! -f ~/.p10k ]] || source ~/.p10k
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+autoload -Uz compinit && compinit
+
+if command -v terraform > /dev/null 2>&1; then
+  complete -o nospace -C "$(command -v terraform)" terraform
+fi
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/opt/homebrew/Cellar/python@3.8/3.8.16/libexec/bin:$PATH"
 export PATH="${PATH}:${HOME}/.local/bin"
 export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -152,4 +153,19 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# JIRA_API_TOKEN should be set in ~/.secrets (keep secrets out of version control)

@@ -42,15 +42,9 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 echo "  › Enable text replacement almost everywhere"
 defaults write -g WebAutomaticTextReplacementEnabled -bool false
 
-echo "  › Turn off keyboard illumination when computer is not used for 5 minutes"
-defaults write com.apple.BezelServices kDimTime -int 300
-
 echo "  › Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
-
-echo "  › Disable Dashboard"
-defaults write com.apple.dashboard mcx-disabled -bool true
 
 echo "  › Don't automatically rearrange Spaces based on most recent use"
 defaults write com.apple.dock mru-spaces -bool false
@@ -75,17 +69,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 echo "  › Disable the 'Are you sure you want to open this application?' dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "  › Show battery percent"
-defaults write com.apple.menuextra.battery ShowPercent -bool true
-
-echo "  › Configure Menu Icons"
-defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu" \
-  "/System/Library/CoreServices/Menu Extras/Volume.menu"
-
 echo "  › Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister \
   -kill -r -domain local -domain system -domain user
@@ -107,8 +90,8 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 echo "  › Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-echo "  › Set sidebar icon size to small"
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+echo "  › Set sidebar icon size to medium"
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 echo "  › Show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -153,7 +136,6 @@ dockutil --no-restart --add "/Applications/Visual Studio Code.app"
 dockutil --no-restart --add "/Applications/iTerm.app"
 dockutil --no-restart --add "/Applications/PowerShell.app"
 dockutil --no-restart --add "/Applications/Microsoft Outlook.app"
-dockutil --no-restart --add "/Applications/Dashlane.app"
 dockutil --no-restart --add "/Applications/WhatsApp.app"
 dockutil --no-restart --add "/Applications/Slack.app"
 

@@ -15,7 +15,6 @@ alias gcof="git checkout -f"
 alias gct="git checkout -t"
 alias gdc="git diff --cached"
 alias gdlast="git diff HEAD~1..HEAD"
-alias gh="git hist"
 alias gl="git l3"
 alias glast="git log -1 HEAD"
 alias glon="git log --oneline --name-only"
@@ -27,3 +26,6 @@ alias gstu="git status -uno"
 alias gt="git tag"
 alias gundo="git reset HEAD~1"
 alias guns="git reset HEAD --"
+
+# Remove the oh-my-zsh git plugin's `gh` alias (git help) to free up `gh` for the GitHub CLI
+unalias gh 2>/dev/null || true
