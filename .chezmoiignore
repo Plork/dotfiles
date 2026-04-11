@@ -1,0 +1,14 @@
+# Non-dotfile directories - sourced at runtime via $DOTFILES variable
+aliases/
+functions/
+path/
+macos/
+git/
+iterm2/
+vim/
+bash/
+
+# Repo meta
+README.md
+LICENSE-MIT.txt
+install

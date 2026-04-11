@@ -1,0 +1,27 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+truncation_length = 4
+truncate_to_repo = true
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+# Kubernetes context — disabled by default in starship, enable it
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+style = "bold blue"
+
+[aws]
+format = '[$symbol($profile)(\($region\))]($style) '
+style = "bold yellow"
+
+[terraform]
+format = '[$symbol$workspace]($style) '
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"

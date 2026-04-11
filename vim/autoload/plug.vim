@@ -1,1 +1,0 @@
-/Users/mbezemer/Git/Plork/dotfiles/vim/vim-plug/plug.vim

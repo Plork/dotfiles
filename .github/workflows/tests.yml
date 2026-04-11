@@ -1,18 +1,57 @@
-name: Dotfiles Install
-on: [push]
+name: Test dotfiles
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
-  tests:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-11.0, macos-latest]
+  lint:
+    name: Lint
+    runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Checkout submodules
-      shell: bash
-      run: |
-        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-        git submodule sync --recursive
-        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive
-    - name: Install dotfiles
-      run: ./install
+      - uses: actions/checkout@v4
+
+      - name: zsh syntax check
+        run: zsh -n dot_zshrc
+
+      - name: Brewfile syntax check
+        run: brew bundle list --file=macos/Brewfile
+
+  shell:
+    name: Shell startup
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link repo to ~/dotfiles
+        run: ln -s "$GITHUB_WORKSPACE" "$HOME/dotfiles"
+
+      - name: Install shell tools
+        run: brew install sheldon starship zoxide mise uv fzf
+
+      - name: Deploy dotfiles
+        run: |
+          cp dot_zshrc ~/.zshrc
+          mkdir -p ~/.config/sheldon ~/.config/mise
+          cp dot_config/sheldon/plugins.toml ~/.config/sheldon/plugins.toml
+          cp dot_config/mise/config.toml ~/.config/mise/config.toml
+          cp dot_config/starship.toml ~/.config/starship.toml
+
+      - name: Fetch sheldon plugins
+        run: sheldon lock
+
+      - name: Test shell startup
+        run: zsh -c 'source ~/.zshrc && echo "shell ok"'
+
+      - name: Verify tools are reachable
+        run: |
+          zsh -c '
+            source ~/.zshrc
+            set -e
+            command -v mise
+            command -v uv
+            command -v z
+            starship --version
+          '

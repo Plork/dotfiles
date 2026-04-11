@@ -1,0 +1,37 @@
+shell = "zsh"
+
+# oh-my-zsh core + plugins loaded in a single clone
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"
+use = ["oh-my-zsh.sh"]
+[plugins.oh-my-zsh.hooks]
+pre = 'export ZSH="{{ dir }}" plugins=(git ssh-agent github sudo command-not-found kubectl docker docker-compose terraform)'
+
+# Third-party plugins
+[plugins.zsh-mkc]
+github = "caarlos0/zsh-mkc"
+
+[plugins.zsh-git-sync]
+github = "caarlos0/zsh-git-sync"
+
+[plugins.zsh-add-upstream]
+github = "caarlos0/zsh-add-upstream"
+
+[plugins.zsh-prepend]
+github = "denolfe/zsh-prepend"
+
+# zoxide handles directory jumping — replaces zsh-z, fzf-z, zshmarks
+
+# zsh-syntax-highlighting must come before zsh-history-substring-search
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+[plugins.alias-tips]
+github = "djui/alias-tips"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+use = ["src/_*"]

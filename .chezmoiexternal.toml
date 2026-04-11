@@ -1,0 +1,3 @@
+# chezmoi externals — oh-my-zsh and zgen previously managed here.
+# Both are now handled by sheldon (see dot_config/sheldon/plugins.toml),
+# which clones and updates plugins in ~/.local/share/sheldon/repos/.

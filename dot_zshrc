@@ -1,0 +1,106 @@
+export DOTFILES="$HOME/dotfiles"
+export no_proxy="*"
+
+# Load plugins via sheldon (~/.config/sheldon/plugins.toml)
+eval "$(sheldon source)"
+
+# Key bindings for zsh-history-substring-search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "^k" history-substring-search-up
+bindkey "^j" history-substring-search-down
+
+# History Options
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+
+# Share history across all your terminal windows
+setopt share_history
+#setopt noclobber
+
+# set some more options
+setopt pushd_ignore_dups
+#setopt pushd_silent
+
+# Increase history size
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+# Return time on long running processes
+REPORTTIME=2
+TIMEFMT="%U user %S system %P cpu %*Es total"
+
+# Place to stash environment variables
+if [[ -a ~/.secrets ]]
+then
+  source ~/.secrets
+fi
+
+# Load functions
+for f in $DOTFILES/functions/*; do source $f; done
+
+# Load aliases
+for f in $DOTFILES/aliases/*.aliases.*sh; do source $f; done
+
+# Load all path files
+for f in $DOTFILES/path/*.path.sh; do source $f; done
+
+if type fd > /dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fd --type f'
+fi
+
+export FZF_DEFAULT_OPTS='--reverse --bind 'ctrl-l:cancel''
+export FZF_TMUX_HEIGHT=80%
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export BAT_THEME='Monokai Extended Bright'
+
+export AWS_PAGER='bat -p'
+
+# Needed for Crystal on mac - openss + pkg-config
+if [ `uname` = Darwin ]; then
+  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/opt/openssl@3/lib/pkgconfig
+fi
+
+eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+if command -v terraform > /dev/null 2>&1; then
+  complete -o nospace -C "$(command -v terraform)" terraform
+fi
+complete -C '/opt/homebrew/bin/aws_completer' aws
+export PATH="/usr/local/sbin:$PATH"
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# JIRA_API_TOKEN should be set in ~/.secrets (keep secrets out of version control)

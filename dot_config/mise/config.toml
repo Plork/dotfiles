@@ -1,0 +1,5 @@
+[tools]
+# Global default tool versions managed by mise.
+# Override per-project with a .mise.toml in the project root.
+node = "lts"
+# Python is managed by uv — use `uv python install` and `uv venv`
