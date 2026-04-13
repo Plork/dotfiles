@@ -1,0 +1,9 @@
+#!/bin/bash
+# Apply macOS system defaults.
+# Re-runs automatically when set-defaults.sh changes.
+# Re-run manually with: ~/dotfiles/macos/set-defaults.sh
+# set-defaults.sh hash: {{ include "macos/set-defaults.sh" | sha256sum }}
+
+set -euo pipefail
+
+"${CHEZMOI_SOURCE_DIR}/macos/set-defaults.sh"
