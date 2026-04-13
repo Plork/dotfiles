@@ -63,6 +63,11 @@ echo "  › Set up trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 3
 defaults write -g com.apple.mouse.scaling 3
 
+echo "  › Enable secondary click (right-click) on trackpad"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+
 echo "  › Avoid the creation of .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
@@ -124,7 +129,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 echo ""
 echo "› Dock"
 echo "  › Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 48
 
 echo "  › Setting the icon on the Dock"
 dockutil --no-restart --remove all
