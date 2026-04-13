@@ -128,7 +128,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 echo ""
 echo "› Dock"
-echo "  › Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
+echo "  › Setting the icon size of Dock items to 48 pixels for optimal size/screen-realestate"
 defaults write com.apple.dock tilesize -int 48
 
 echo "  › Setting the icon on the Dock"
@@ -218,6 +218,11 @@ echo "› iTerm"
 echo "  › Set iTerm profile folder"
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "${DOTFILES}/iterm2"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+echo ""
+echo "› Browser"
+echo "  › Set Microsoft Edge as default browser"
+defaultbrowser microsoft-edge
 
 echo ""
 echo "› Kill related apps"
