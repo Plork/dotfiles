@@ -5,4 +5,4 @@
 
 set -euo pipefail
 
-"$HOME/dotfiles/macos/set-defaults.sh"
+"${CHEZMOI_SOURCE_DIR}/macos/set-defaults.sh"

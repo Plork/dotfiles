@@ -6,4 +6,4 @@
 set -euo pipefail
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-brew bundle install --file="$HOME/dotfiles/macos/Brewfile"
+brew bundle install --file="${CHEZMOI_SOURCE_DIR}/macos/Brewfile"

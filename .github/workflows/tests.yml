@@ -17,7 +17,7 @@ jobs:
         run: zsh -n dot_zshrc
 
       - name: Brewfile syntax check
-        run: brew bundle list --file=macos/Brewfile
+        run: brew bundle list --file="$GITHUB_WORKSPACE/macos/Brewfile"
 
   shell:
     name: Shell startup

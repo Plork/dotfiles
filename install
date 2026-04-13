@@ -3,7 +3,7 @@
 # Sets up Homebrew and chezmoi, then applies all dotfiles.
 #
 # New machine setup:
-#   git clone https://github.com/mbezemer/dotfiles ~/dotfiles
+#   git clone https://github.com/Plork/dotfiles ~/dotfiles
 #   ~/dotfiles/install
 
 set -euo pipefail
