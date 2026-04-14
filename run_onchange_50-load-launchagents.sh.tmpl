@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Load (or reload) managed launchd agents after chezmoi deploys them.
+# run_onchange_: re-runs when this file's content changes.
+# The comments below embed rendered plist hashes so chezmoi re-runs this
+# script whenever any plist changes.
+# kubeconfig plist hash: {{ includeTemplate "Library/LaunchAgents/com.mbezemer.sync-kubeconfig.plist.tmpl" . | sha256sum }}
+# aws-config plist hash: {{ includeTemplate "Library/LaunchAgents/com.mbezemer.sync-aws-config.plist.tmpl" . | sha256sum }}
+
+set -euo pipefail
+
+load_agent() {
+  local plist="$1"
+  local service="$2"
+  echo "==> Loading ${service}..."
+  launchctl bootout "${service}" 2>/dev/null || true
+  launchctl bootstrap "gui/$(id -u)" "${plist}"
+  echo "==> ${service} loaded."
+}
+
+load_agent \
+  "{{ .chezmoi.homeDir }}/Library/LaunchAgents/com.mbezemer.sync-kubeconfig.plist" \
+  "gui/$(id -u)/com.mbezemer.sync-kubeconfig"
+
+load_agent \
+  "{{ .chezmoi.homeDir }}/Library/LaunchAgents/com.mbezemer.sync-aws-config.plist" \
+  "gui/$(id -u)/com.mbezemer.sync-aws-config"
