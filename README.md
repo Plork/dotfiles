@@ -17,6 +17,14 @@
 
 ## Installation
 
+On a fresh macOS machine, install the Xcode Command Line Tools first (provides `git`):
+
+```sh
+xcode-select --install
+```
+
+Then clone and run the bootstrap:
+
 ```sh
 git clone https://github.com/Plork/dotfiles ~/dotfiles
 ~/dotfiles/install
