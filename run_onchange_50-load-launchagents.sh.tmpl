@@ -6,21 +6,25 @@
 # kubeconfig plist hash: {{ includeTemplate "Library/LaunchAgents/com.mbezemer.sync-kubeconfig.plist.tmpl" . | sha256sum }}
 # aws-config plist hash: {{ includeTemplate "Library/LaunchAgents/com.mbezemer.sync-aws-config.plist.tmpl" . | sha256sum }}
 
-set -euo pipefail
+set -uo pipefail
 
 load_agent() {
   local plist="$1"
-  local service="$2"
-  echo "==> Loading ${service}..."
-  launchctl bootout "${service}" 2>/dev/null || true
-  launchctl bootstrap "gui/$(id -u)" "${plist}"
-  echo "==> ${service} loaded."
+  local label="$2"
+  if [ ! -f "${plist}" ]; then
+    echo "==> Warning: ${plist} not found, skipping"
+    return 0
+  fi
+  echo "==> Loading ${label}..."
+  launchctl unload "${plist}" 2>/dev/null || true
+  launchctl load -w "${plist}" || echo "==> Warning: failed to load ${label}, will be active after next login"
+  echo "==> ${label} done."
 }
 
 load_agent \
   "{{ .chezmoi.homeDir }}/Library/LaunchAgents/com.mbezemer.sync-kubeconfig.plist" \
-  "gui/$(id -u)/com.mbezemer.sync-kubeconfig"
+  "com.mbezemer.sync-kubeconfig"
 
 load_agent \
   "{{ .chezmoi.homeDir }}/Library/LaunchAgents/com.mbezemer.sync-aws-config.plist" \
-  "gui/$(id -u)/com.mbezemer.sync-aws-config"
+  "com.mbezemer.sync-aws-config"
