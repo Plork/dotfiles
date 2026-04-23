@@ -1,6 +1,8 @@
 tap "hashicorp/tap"
+tap "fwdcloudsec/granted"
 brew "awscli"
 brew "aws-sso-util"
+brew "fwdcloudsec/granted/granted"
 brew "openssl@3"
 brew "sqlite"
 brew "bash"
